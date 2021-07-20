@@ -1,6 +1,10 @@
 # Using Deep Learning model for detecting intravasation doorways called TMEM
 ## What is TMEM - Tumor MicroEnvironemnt of Metastasis  
 few sentences about TMEM and importance
+| ![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png) |
+|:--:|
+| Two examples from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/) showing triple-cell TMEM structure  |
+
 
 ## Challenge
 So far, pathologists have identified TMEMs manully in fixed tissues. The goal of this project is to train a deep learning model based on pathologists' identified TMEM sites and then use this model for inference in to predict to To detect TMEM doorway sites in FFPE tissues triple stained with anti-Mena (ligh pink, cancer cell marker), anti-Iba1 (brown, marrophage marker) and anti-CD31 (blue, endothelial cell marker)
