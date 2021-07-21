@@ -1,13 +1,17 @@
 # Training a Deep Learning model for detecting metastasis doorways called TMEM
 ## What is TMEM - Tumor MicroEnvironemnt of Metastasis  
-few sentences about TMEM and importance
-| ![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png) |
-|:--:|
-| Two examples from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/) showing triple-cell TMEM structure .TMEMs were visually identified and drawn by pathologists. |
+Tumor MicroEnvironment of Metastasis (TMEM) is an immunohistochemical biomarker for doorways on blood vessels that support tumor cell dissemination and is prognostic for metastatic outcome in breast cancer patients. TMEM is composed of three cell types - an invasive tumor cell (TC), a macrophage (M) and an endothelial cell (EC) - in stable physical contact with each other.
+
+Following image taken from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/), shows two examples of TMEM structures in triple IHC immunostained human breast cancer tissue. TMEMs, marked in black squares, were visually identified and drawn by pathologists.
+
+![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png)
+
 
 
 ## Goal
-So far, pathologists have identified TMEMs manully in fixed tissues. The goal of this project is to train a deep learning model based on pathologists' identified TMEM sites and then use this model for inference in to predict to To detect TMEM doorway sites in FFPE tissues triple stained with anti-Mena (ligh pink, cancer cell marker), anti-Iba1 (brown, marrophage marker) and anti-CD31 (blue, endothelial cell marker)
+TMEM doorway identification involves looking for direct contact of the three cell types that compose TMEM doorway within the tumor. This is done **manually** by pathologists using triple stained formalin-fixed paraffin embedded (FFPE) tumor tissue sections. This task is labor intensive and prone to error due to pathologist fatigue.
+
+The goal of this project is to automate the TMEM detection step by training a deep learning model based on TMEM annotations marked by pathologists and then use this trained model to predict to To detect TMEM doorway sites in FFPE tissues triple stained with anti-Mena (ligh pink, cancer cell marker), anti-Iba1 (brown, marrophage marker) and anti-CD31 (blue, endothelial cell marker)
 
 This is a Google Colab notebook for training a Deep Learning model and predicting TMEM doorways (blood vessel intravasation sites for tumor cells) in fixed tissues.
 
