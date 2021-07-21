@@ -1,4 +1,4 @@
-# Using Deep Learning model for detecting intravasation doorways called TMEM
+# Training a Deep Learning model for detecting metastasis doorways called TMEM
 ## What is TMEM - Tumor MicroEnvironemnt of Metastasis  
 few sentences about TMEM and importance
 | ![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png) |
