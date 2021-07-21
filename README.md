@@ -3,7 +3,7 @@
 few sentences about TMEM and importance
 | ![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png) |
 |:--:|
-| Two examples from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/) showing triple-cell TMEM structure  |
+| Two examples from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/) showing triple-cell TMEM structure .TMEMs were visually identified and drawn by pathologists. |
 
 
 ## Goal
