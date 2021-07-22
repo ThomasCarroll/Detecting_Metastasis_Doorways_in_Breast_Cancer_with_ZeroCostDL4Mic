@@ -1,6 +1,6 @@
 # Training a Deep Learning model for detecting metastasis doorways called TMEM
 ## What is TMEM - Tumor MicroEnvironemnt of Metastasis  
-TMEM is an immunohistochemical biomarker for doorways on blood vessels that support tumor cell dissemination and is prognostic for metastatic outcome in breast cancer patients. TMEM is composed of three cell types - an invasive tumor cell (TC), a macrophage (M) and an endothelial cell (EC) - in stable physical contact with each other.
+TMEM is an immunohistochemical biomarker for doorways on blood vessels that support tumor cell dissemination and is prognostic for metastatic outcome in breast cancer patients (refs). TMEM is composed of three cell types - an invasive tumor cell (TC), a macrophage (M) and an endothelial cell (EC) - in stable physical contact with each other.
 
 Following image taken from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/), shows two examples of TMEM structures in triple IHC immunostained human breast cancer tissue. TMEMs, marked in black squares, were visually identified and drawn by pathologists.
 
@@ -8,34 +8,32 @@ Following image taken from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.go
 
 
 
-## Background
-TMEM identification in formalin-fixed paraffin-embedded (FFPE) tumor tissuesinvolves looking for direct contact of the three cell types that compose TMEM doorway within the tumor. This is done **manually** by pathologists and is a labor-intensive task.
+## TMEM detection - Background
+TMEM identification in formalin-fixed paraffin-embedded (FFPE) tumor tissue involves looking for direct contact of the three cell types that compose TMEM doorway within the tumor. This is done **manually** by pathologists and is a labor-intensive task.
 
 Recently, our lab published a [machine learning method to detect TMEMs](https://pubmed.ncbi.nlm.nih.gov/32244564/) in fixed tissues. This supervised learning method utilized pixel classifcation followed by segmentaion to identify the three cell types of TMEM and then exapnding the size of TMEM-associated vessel to generate the TMEM ROI. This method involves careful pre and post processing of images such as smoothening, filtering and boundary separation of different cell types.
 
 ## Goal
-We wanted to bypass all of these time-consuming and labor-intesive pre/post processing steps and remove all the user inputs which are required for pixel based classification/segmentation of objects. Therefore, we were interested in training a deep learning object detection model based on just pathologists drawn TMEM annotations and then use this trained model to predict TMEM doorway sites in new images. 
+We wanted to bypass all of the above described time-consuming and labor-intesive pre/post processing steps and remove all the user inputs which are required for pixel based classification and segmentation of objects. Therefore, we were interested in using a deep learning object detection model trained with just the pathologists drawn TMEM annotations and then use this trained model to detect TMEM doorway sites in images not seen by the model.
 
-
-
+<!--
 in FFPE tissues triple stained with anti-Mena (ligh pink, cancer cell marker), anti-Iba1 (brown, marrophage marker) and anti-CD31 (blue, endothelial cell marker)
-
-
-
-
-
-
 
 Bayesian classification was used to detect and quantify TMEMs. This method requires training based on pixel classes and careful pre and post processing to classify each pixel belonging to either TC, Mac or EC classes. We were interested in trying a Deep Learning model to detect TMEMs in fixed tissues. The advantage of such methods is minimal to no pre/post processing of images and no user input on setting theshold for detecting the TMEM. Unlike Bayseian classifier (ref), we are not trying to identify individual 
 
 Fixed PyMT tumor tissues were stained with pan-Mena (light pink, Tumor cells), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies and whole-slide images were acquired on HISTECH P250 scanner. Following are examples of some 512x512 fields with TMEM identified and manually drawn by a pathologist in red bounding boxes. 
+-->
+## Training images and annotations
+Following are some examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten images out of 14 were kept for model training and rest test images were used for checking the model prediction.
 
-> some rep images  
+> Images
 
-TMEM ROIs were then converted to [Pascal VOC annotations](https://github.com/ved-sharma/PASCAL_VOC_xml_generator_ImageJ_Fiji) format in ImageJ/Fiji
+**Note 1:** Please note that anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep model to learn this variability during training and make correct predictions.
+
+**Note 2:** Since annotations need to be in the Pascal VOC format for model training, I wrote a script to convert ImageJ ROIs to [Pascal VOC .xml annotations](https://github.com/ved-sharma/PASCAL_VOC_xml_generator_ImageJ_Fiji).
 
 ## Code
-Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/HenriquesLab/DeepLearning_Collab/wiki).
+Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/HenriquesLab/DeepLearning_Collab/wiki) framework.
 
 ## Model Training summary
 - Object detection model YOLOv2 was trained for 30 epochs.
