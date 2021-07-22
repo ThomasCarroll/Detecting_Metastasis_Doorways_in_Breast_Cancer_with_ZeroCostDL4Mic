@@ -36,8 +36,8 @@ Following are some examples images from a PyMT tumor tissue stained with pan-Men
 Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/HenriquesLab/DeepLearning_Collab/wiki) framework.
 
 ## Model Training summary
-- Object detection model YOLOv2 was trained for 30 epochs.
-- Augmentation (flip, rotation) was used to create additional training data - 50 images were generated from 10 original training images. 
+- Object detection model YOLOv2 was trained for different epochs from 10-50 and 30 epochs were found to be sufficient for optimum model training.
+- Augmentation (flip, rotation) was used to create additional training data - 50 augmented training images were generated from 10 original images. 
 - Ten percent training data was used for validation. 
 - Penalty values for false-positive (TMEM detected where there is none!) and false-negative (TMEM not detected where there is one!) detections were optimized and values of 1 and 10 respectively, gave the best model performace.
 
