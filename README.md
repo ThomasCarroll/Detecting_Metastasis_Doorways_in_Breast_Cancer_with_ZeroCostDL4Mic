@@ -24,9 +24,9 @@ Bayesian classification was used to detect and quantify TMEMs. This method requi
 Fixed PyMT tumor tissues were stained with pan-Mena (light pink, Tumor cells), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies and whole-slide images were acquired on HISTECH P250 scanner. Following are examples of some 512x512 fields with TMEM identified and manually drawn by a pathologist in red bounding boxes. 
 -->
 ## Training images and annotations
-Following are some examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten images out of 14 were kept for model training and rest test images were used for checking the model prediction.
+Following are two examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten images out of 14 were kept for model training and rest test images were used for checking the model prediction.  
 
-> Images
+![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/17d116a038972642d334a89ae01307a8aa772ac0/Files/train_2_images.jpg)
 
 **Note 1:** Please note that anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep model to learn this variability during training and make correct predictions.
 
@@ -42,15 +42,18 @@ Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/H
 - Penalty values for false-positive (TMEM detected where there is none!) and false-negative (TMEM not detected where there is one!) detections were optimized and values of 1 and 10 respectively, gave the best model performace.
 
 ## Model performace
-Both training and validation losses dropped dramtically after epoch 3 and continued the downward trend till epoch 30. More importantly mean average precision (mAP) for TMEM detection, which was close to zero in the beginning started climbing beginning epoch 6 and reached the max value of 1 by around epoch 20.
+Left plots: Both training and validation losses dropped dramtically after epoch 3 and continued the downward trend till epoch 30.   
 
->three plots side by side
+Right plot: More importantly mean average precision (mAP) for TMEM detection, which was close to zero in the beginning started climbing beginning epoch 6 and reached 0.92 (closer to 1 indicates good model fit) by epoch 25.
+
+![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/51506ba78aa9151191b700fef43ce0d6819026d2/Files/training_val_loss_mAP_vs_epoch.png)
 
 ## TMEM prediction on unseen images
-I had four test images on which model inference was run. TMEM predictions look great :)
+I had four test images on which model inference was run. Two of these images are shown below with TMEM predictions, which looks great :)  
 
->images for all 4 cases
+**Note:** you could see TMEM prediction results for all four images in the Google Colab notebook in the Code section above
 
+![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/f264972a45695c16e21942d31f7e0943d9923e85/Files/input_predicted_images_v2.jpg)
 ## Future plans
 This work is a proof-of-principle to demonstrate that a Deep Learning model could be trained to detect TMEM doorways in fixed tissues. Training was successful, since the trained model was able to correctly detect TMEMs on unseen images. Here, I used a small dataset of 10, 512x512 images with minimal staining variation across the images in the training and test datasets. To generalize TMEM detection in tissues with wide variations in staining and to generalize to other conditions, need to train this model on more such images.
 
