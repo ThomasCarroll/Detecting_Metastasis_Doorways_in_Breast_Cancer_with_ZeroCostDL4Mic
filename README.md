@@ -33,7 +33,9 @@ Following are two examples images from a PyMT tumor tissue stained with pan-Mena
 **Note 2:** Since annotations need to be in the Pascal VOC format for model training, I wrote a script to convert ImageJ ROIs to [Pascal VOC .xml annotations](https://github.com/ved-sharma/PASCAL_VOC_xml_generator_ImageJ_Fiji).
 
 ## Code
-Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/HenriquesLab/DeepLearning_Collab/wiki) framework.
+Here is the Google Colab notebook based on [ZeroCostDL4Mic](https://github.com/HenriquesLab/DeepLearning_Collab/wiki) framework.  
+
+[![Open in colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/74f9499b89b6e1998f452f379cbf3b7c7ef3db97/TMEM_detection_YOLOv2_ZeroCostDL4Mic.ipynb)
 
 ## Model Training summary
 - Object detection model YOLOv2 was trained for different epochs from 10-50 and 30 epochs were found to be sufficient for optimum model training.
