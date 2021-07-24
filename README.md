@@ -28,7 +28,7 @@ Following are two examples images from a PyMT tumor tissue stained with pan-Mena
 
 ![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/17d116a038972642d334a89ae01307a8aa772ac0/Files/train_2_images.jpg)
 
-**Note 1:** Please note that anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep model to learn this variability during training and make correct predictions.
+**Note 1:** Anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep model to learn this variability during training and make correct predictions.
 
 **Note 2:** Since annotations need to be in the Pascal VOC format for model training, I wrote a script to convert ImageJ ROIs to [Pascal VOC .xml annotations](https://github.com/ved-sharma/PASCAL_VOC_xml_generator_ImageJ_Fiji).
 
