@@ -1,8 +1,8 @@
 # Training a Deep Learning model for detecting metastasis doorways called TMEM
 ## What is TMEM - Tumor MicroEnvironemnt of Metastasis  
-TMEM is an immunohistochemical biomarker for doorways on blood vessels that support tumor cell dissemination and is prognostic for metastatic outcome in breast cancer patients (refs). TMEM is composed of three cell types - an invasive tumor cell (TC), a macrophage (M) and an endothelial cell (EC) - in stable physical contact with each other.
+TMEM is an immunohistochemical biomarker for doorways on blood vessels that support tumor cell dissemination and is prognostic for metastatic outcome in breast cancer patients (PMIDs: [24895374](https://pubmed.ncbi.nlm.nih.gov/24895374/), [19318480](https://pubmed.ncbi.nlm.nih.gov/19318480/), [29138761](https://pubmed.ncbi.nlm.nih.gov/29138761/), [26269515](https://pubmed.ncbi.nlm.nih.gov/26269515/), [28838996](https://pubmed.ncbi.nlm.nih.gov/28838996/)). TMEM is composed of three cell types - an invasive tumor cell (TC), a macrophage (M) and an endothelial cell (EC) - in stable physical contact with each other.
 
-Following image taken from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/), shows two examples of TMEM structures in triple IHC immunostained human breast cancer tissue. TMEMs, marked in black squares, were visually identified and drawn by pathologists.
+Following image from [Robinson et al. 2009](https://pubmed.ncbi.nlm.nih.gov/19318480/), shows two examples of TMEM structures in triple IHC immunostained human breast cancer tissue. TMEMs, marked in black squares, were visually identified and drawn by pathologists.
 
 ![](https://github.com/ved-sharma/ZeroCostDL4Mic_Detecting_Metastasis_Doorways_in_Cancer/blob/24be5d5067de8a3f3ffc010c1b43f20d1a8b6efc/Files/TMEM_examples_github_v6.png)
 
@@ -24,7 +24,7 @@ Bayesian classification was used to detect and quantify TMEMs. This method requi
 Fixed PyMT tumor tissues were stained with pan-Mena (light pink, Tumor cells), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies and whole-slide images were acquired on HISTECH P250 scanner. Following are examples of some 512x512 fields with TMEM identified and manually drawn by a pathologist in red bounding boxes. 
 -->
 ## Training images and annotations
-Following are two examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten images out of 14 were kept for model training and rest test images were used for checking the model prediction.  
+Following are two examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten out of 14 images were used for model training and rest 4 images were used for checking the model prediction.  
 
 ![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/17d116a038972642d334a89ae01307a8aa772ac0/Files/train_2_images.jpg)
 
