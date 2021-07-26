@@ -14,7 +14,7 @@ TMEM identification in formalin-fixed paraffin-embedded (FFPE) tumor tissue invo
 Recently, our lab published a [machine learning method to detect TMEMs](https://pubmed.ncbi.nlm.nih.gov/32244564/) in fixed tissues. This supervised learning method utilized pixel classifcation followed by segmentaion to identify the three cell types of TMEM and then exapnding the size of TMEM-associated vessel to generate the TMEM ROI. This method involves careful pre and post processing of images such as smoothening, filtering and boundary separation of different cell types.
 
 ## Goal
-We wanted to bypass all of the above described time-consuming and labor-intesive pre/post processing steps and remove all the user inputs which are required for pixel based classification and segmentation of objects. Therefore, we were interested in using a deep learning object detection model trained with just the pathologists drawn TMEM annotations and then use this trained model to detect TMEM doorway sites in images not seen by the model.
+We wanted to bypass all of the above described time-consuming and labor-intesive pre/post processing steps and remove all the user inputs which are required for pixel based classification and segmentation of objects. Therefore, we were interested in using a deep learning object detection model trained with just the pathologists drawn TMEM annotations and then use this trained model to detect TMEM doorways in images not seen by the model.
 
 <!--
 in FFPE tissues triple stained with anti-Mena (ligh pink, cancer cell marker), anti-Iba1 (brown, marrophage marker) and anti-CD31 (blue, endothelial cell marker)
@@ -24,11 +24,11 @@ Bayesian classification was used to detect and quantify TMEMs. This method requi
 Fixed PyMT tumor tissues were stained with pan-Mena (light pink, Tumor cells), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies and whole-slide images were acquired on HISTECH P250 scanner. Following are examples of some 512x512 fields with TMEM identified and manually drawn by a pathologist in red bounding boxes. 
 -->
 ## Training images and annotations
-Following are two examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a Histech P250 slide scanner and 14, 512x512 areas were cropped. Ten out of 14 images were used for model training and rest 4 images were used for checking the model prediction.  
+Following are two examples images from a PyMT tumor tissue stained with pan-Mena (light pink, identifies invasive Tumor cells, TC), Iba-1 (brown, macrophages) and CD31 (blue, endothelial cells) antibodies. Whole-slide imaging was performed on a 3DHISTECH P250 slide scanner and 14, 512x512 areas were cropped. Ten images out of 14 were used for model training and rest 4 images were kept for checking the model prediction.  
 
 ![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/17d116a038972642d334a89ae01307a8aa772ac0/Files/train_2_images.jpg)
 
-**Note 1:** Anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep model to learn this variability during training and make correct predictions.
+**Note 1:** Anti-Mena staining (pink) is not that strong and highly variable from one image to the other. We are expecting our deep learning model to learn this variability during training and make correct predictions.
 
 **Note 2:** Since annotations need to be in the Pascal VOC format for model training, I wrote a script to convert ImageJ ROIs to [Pascal VOC .xml annotations](https://github.com/ved-sharma/PASCAL_VOC_xml_generator_ImageJ_Fiji).
 
@@ -51,11 +51,12 @@ Right plot: More importantly mean average precision (mAP) for TMEM detection, wh
 ![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/51506ba78aa9151191b700fef43ce0d6819026d2/Files/training_val_loss_mAP_vs_epoch.png)
 
 ## TMEM prediction on unseen images
-I had four test images on which model inference was run. Two of these images are shown below with TMEM predictions, which looks great :)  
+I had 4 test images on which model predictions were checked. Two of these images are shown below with TMEM predictions, which look great :)  
+
+![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/f264972a45695c16e21942d31f7e0943d9923e85/Files/input_predicted_images_v2.jpg)
 
 **Note:** you could see TMEM prediction results for all four images in the Google Colab notebook in the Code section above
 
-![](https://github.com/ved-sharma/Detecting_Metastasis_Doorways_in_Breast_Cancer_with_ZeroCostDL4Mic/blob/f264972a45695c16e21942d31f7e0943d9923e85/Files/input_predicted_images_v2.jpg)
 ## Future plans
-This work is a proof-of-principle to demonstrate that a Deep Learning model could be trained to detect TMEM doorways in fixed tissues. Training was successful, since the trained model was able to correctly detect TMEMs on unseen images. Here, I used a small dataset of 10, 512x512 images with minimal staining variation across the images in the training and test datasets. To generalize TMEM detection in tissues with wide variations in staining and to generalize to other conditions, need to train this model on more such images.
+This work is a proof-of-principle to demonstrate that a Deep Learning model could be trained to detect TMEM doorways in fixed tissues. Training was successful, since the trained DL model was able to correctly detect TMEMs on unseen images. Here, I used a small dataset of 10, 512x512 images with minimal staining variation across the images in the training and test datasets. To generalize TMEM detection in tissues with wide variations in staining would require training this model further on more such images.
 
